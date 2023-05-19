@@ -52,27 +52,33 @@ cityDOM.addEventListener("input", () =>
 
 btn.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(inputFields)
+  console.log(inputFields);
   for (let i = 0; i < inputFields.length; i++) {
     if (!inputFields[i].value) {
-      console.log('bp1')
-      alert("One or more fields are empty, please fill them")
+      console.log("bp1");
+      alert("One or more fields are empty, please fill them");
       toggleOff(errorMessages[4]);
       return;
     }
   }
-  if(!qualSelector.value)
-  {
-    alert("Please choose your qualification.")
+  if (!qualSelector.value) {
+    alert("Please choose your qualification.");
     return;
   }
 
-  const errorArray = [];
-  for (let i = 0; i < errorMessages.length; i++) {
-    errorArray.push(errorMessages[i]);
-  }
-  if (errorArray.filter((error) => error.style.display === "block") !== []) {
-    alert("Please re-fill the invalid fields as indicated")
+  // const errorArray = [];
+  // for (let i = 0; i < errorMessages.length; i++) {
+  //   errorArray.push(errorMessages[i]);
+  // }
+  if (
+    errorMessages[0].style.display === "block" ||
+    errorMessages[1].style.display === "block" ||
+    errorMessages[2].style.display === "block" ||
+    errorMessages[3].style.display === "block" ||
+    errorMessages[4].style.display === "block" ||
+    errorMessages[5].style.display === "block"
+  ) {
+    alert("Please re-fill the invalid fields as indicated");
     return;
   }
   if (pwdDOM.value !== confirmPwdDOM.value) {
@@ -80,5 +86,5 @@ btn.addEventListener("click", (e) => {
     return;
   }
   toggleOff(errorMessages[4]);
-  alert("Your response has been recorded")
+  alert("Your response has been recorded");
 });
